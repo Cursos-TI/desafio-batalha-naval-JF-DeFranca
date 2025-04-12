@@ -48,15 +48,53 @@ int main() {
 
     //NAVIO 4 NA DIAGONAL INVERSA
 
-    for (int i = 0; i < TAMANHO_NAVIO; i++){
-        int linha = i;
-        int coluna = 9 - i;
+        for (int i = 0; i < TAMANHO_NAVIO; i++){
+            int linha = i;
+            int coluna = 9 - i;
 
-        if (linha < TAM && coluna >= 0){
-            tabuleiro [linha][coluna] = NAVIO;
+            if (linha < TAM && coluna >= 0){
+                tabuleiro [linha][coluna] = NAVIO;
+            }
+                
         }
-              
-    }
+        
+
+        //SUPER PODER - OCTAEDRO
+        for (int i = 0; i < TAMANHO_NAVIO; i++){
+            for (int j = 0; j < TAMANHO_NAVIO; j++){
+                
+                if (i == 1) {
+                    tabuleiro[7 + i][j] = NAVIO;
+                } else if (j == 1) {               
+                    tabuleiro[7 + i][j] = NAVIO;
+          
+                }
+            }      
+        }
+
+
+        //SUPER PODER - CRUZ
+        for (int i = 0; i < 3; i++) {  
+            for (int j = 0; j < 5; j++) { 
+                if (i == 1) {  
+                    tabuleiro[2 + i][1 + j] = NAVIO;
+                }
+                if (j == 1) {  
+                    tabuleiro[3 + i][j] = NAVIO;
+                }
+            }
+        }
+                
+                
+
+
+
+
+
+
+
+
+
 
     // IMPRESSÃO DO TABULEIRO 
 
@@ -76,21 +114,7 @@ int main() {
 
 
     
-    
-    
-    
-
-
-
-
-
-   
-
-
-
-
-
-
+ 
 
     return 0;
 }
