@@ -9,6 +9,7 @@
 #define AGUA 0
 #define NAVIO 3
 #define TAMANHO_NAVIO 3
+#define SUPERPODER 1
 
 
 int main() {
@@ -64,9 +65,9 @@ int main() {
             for (int j = 0; j < TAMANHO_NAVIO; j++){
                 
                 if (i == 1) {
-                    tabuleiro[7 + i][j] = NAVIO;
+                    tabuleiro[7 + i][j] = SUPERPODER;
                 } else if (j == 1) {               
-                    tabuleiro[7 + i][j] = NAVIO;
+                    tabuleiro[7 + i][j] = SUPERPODER;
           
                 }
             }      
@@ -74,32 +75,53 @@ int main() {
 
 
         //SUPER PODER - CRUZ
-        for (int i = 0; i < 3; i++) {  
-            for (int j = 0; j < 5; j++) { 
-                if (i == 1) {  
-                    tabuleiro[2 + i][1 + j] = NAVIO;
-                }
-                if (j == 1) {  
-                    tabuleiro[3 + i][j] = NAVIO;
-                }
+
+        int cruz[3][5] = {
+            {0, 0, 1, 0, 0},
+            {1, 1, 1, 1, 1},
+            {0, 0, 1, 0, 0}
+        
+        };
+
+        int linhaInicial = 2;   
+        int colunaInicial = 0;
+     
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 5; j++){
+                if (linhaInicial + i < 10 && colunaInicial + j < 10){
+                    tabuleiro[linhaInicial +  i][colunaInicial + j] = cruz[i][j];
+                }   
             }
         }
-                
-                
+        
 
+        //SUPER PODER - CONE
 
+        int cone[3][5] = {
+            {0, 0, 1, 0, 0},
+            {0, 1, 1, 1, 0},
+            {1, 1, 1, 1, 1}
+        
+        };
 
+        int linhaInicialCone = 7;   
+        int colunaInicialCone = 5;
+     
 
-
-
-
-
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 5; j++){
+                if (linhaInicialCone + i < 10 && colunaInicialCone + j < 10){
+                    tabuleiro[linhaInicialCone +  i][colunaInicialCone + j] = cone[i][j];
+                }   
+            }
+        }
 
 
     // IMPRESSÃO DO TABULEIRO 
 
     printf("\nTABULEIRO DE BATALHA NAVAL\n");
-    printf("ÁGUA = 0 NAVIO = 3\n");
+    printf("ÁGUA = 0 NAVIO = 3 SUPER PODER = 1\n");
     printf("\n");
     
 
